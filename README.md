@@ -83,4 +83,4 @@ in `version.rb`, and then run `bundle exec rake release` to create a git
 tag for the version, push git commits and tags, and push the `.gem` file
 to [rubygems.org](https://rubygems.org).
 
-Also see our [Code of Conduct](http://github.com/tubbo/active_model-jobs/master/tree/CODE_OF_CONDUCT.md).
+Also see our [Code of Conduct](https://github.com/tubbo/active_model-jobs/blob/master/CODE_OF_CONDUCT.md).
