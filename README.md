@@ -2,6 +2,8 @@
 
 A model-level interface for kicking off background jobs using ActiveJob.
 
+[Documentation](http://www.rubydoc.info/github/tubbo/active_model-jobs/master)
+
 ## Installation
 
 Add this line to your application's Gemfile:
