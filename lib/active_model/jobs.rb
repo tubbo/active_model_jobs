@@ -5,10 +5,15 @@ require "active_model/jobs/performer"
 
 module ActiveModel
   # Include this module into your model to take advantage of
-  # automatically-generated :#{job_name}! action methods for any
+  # automatically-generated +:job_name!+ action methods for any
   # matching ActiveJob classes.
   #
-  # @api public
+  # @example
+  #   class MyModel < ActiveRecord::Base
+  #     include ActiveModel::Jobs
+  #
+  #     after_commit :deploy!
+  #   end
   module Jobs
     # Call +perform_later+ on an ActiveJob class corresponding to an
     # undefined action method name. Most of the work here is done in the
