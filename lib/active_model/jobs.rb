@@ -1,3 +1,4 @@
+require "active_model"
 require "active_model/jobs/version"
 
 module ActiveModel
@@ -16,8 +17,7 @@ module ActiveModel
     private
 
     def is_job?(method)
-      method.to_s!
-      return false unless method =~ BANG
+      return false unless method.to_s =~ BANG
       !!job_for(method)
     end
 
@@ -30,7 +30,7 @@ module ActiveModel
 
     def job_name(method)
       [
-        job_action_name(method),
+        job_action_name(method.to_s),
         model_name,
         'job'
       ].join '_'
