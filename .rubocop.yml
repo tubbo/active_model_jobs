@@ -1,0 +1,14 @@
+# Exclude vendored and generated code from Rubocop
+AllCops:
+  Exclude:
+    - vendor/**/*
+    - bin/*
+
+# Don't require documentation for mocks
+Style/Documentation:
+  Exclude:
+    - spec/support/mocks.rb
+
+# Allow any kind of string literal
+Style/StringLiterals:
+  Enabled: false

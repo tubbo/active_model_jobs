@@ -22,8 +22,8 @@ class Model
 
   define_model_callbacks :save, :create, :update
 
-  after_create  :kickoff!
-  after_update  :refresh!
+  after_create :kickoff!
+  after_update :refresh!
 
   def save
     run_callbacks :save do
@@ -38,11 +38,11 @@ class Model
   end
 
   def created?
-    persisted? && !!created
+    persisted? && created
   end
 
   def refreshed?
-    !!refreshed
+    refreshed || false
   end
 
   private
