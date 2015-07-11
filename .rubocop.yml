@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - vendor/**/*
     - bin/*
+    - lib/active_model/jobs/version.rb
 
 # Don't require documentation for mocks
 Style/Documentation:
