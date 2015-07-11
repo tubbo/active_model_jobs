@@ -1,4 +1,5 @@
 module ActiveModel
+  #
   module Jobs
     # A support class for finding the +ActiveJob::Base+ that corresponds
     # to a given action method on a given model. When the job class is

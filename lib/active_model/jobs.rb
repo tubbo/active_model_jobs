@@ -1,3 +1,4 @@
+require "active_support/all"
 require "active_model"
 require "active_model/jobs/version"
 require "active_model/jobs/performer"
@@ -20,7 +21,8 @@ module ActiveModel
     #
     # @throws NoMethodError if no job matches the action method
     def method_missing(method, *arguments)
-      return super unless performer = job_performer(method)
+      performer = job_performer(method)
+      return super unless performer.present?
       performer.call self
     end
 

@@ -8,7 +8,7 @@ AllCops:
 # Don't require documentation for mocks
 Style/Documentation:
   Exclude:
-    - spec/support/mocks.rb
+    - spec/**/*
 
 # Allow any kind of string literal
 Style/StringLiterals:
