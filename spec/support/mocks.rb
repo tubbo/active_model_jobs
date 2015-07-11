@@ -1,18 +1,18 @@
 require 'active_support/all'
 
-class RefreshModelJob
+class RefreshMockerJob
   def self.perform_later(model)
     model.refreshed = true
   end
 end
 
-class KickoffModelJob
+class KickoffMockerJob
   def self.perform_later(model)
     model.created = true
   end
 end
 
-class Model
+class Mocker
   include ActiveModel::Model
   include ActiveModel::Jobs
 

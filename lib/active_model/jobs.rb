@@ -1,5 +1,6 @@
 require "active_model"
 require "active_model/jobs/version"
+require "active_model/jobs/performer"
 
 module ActiveModel
   # Include this module into your model to take advantage of
@@ -8,51 +9,26 @@ module ActiveModel
   #
   # @api public
   module Jobs
-    # @type [RegExp]
-    BANG = /!\Z/
-
     # Call +perform_later+ on an ActiveJob class corresponding to an
-    # undefined action method name.
+    # undefined action method name. Most of the work here is done in the
+    # +Performer+ class, which takes care of discoevering whether the
+    # method passed in corresponds to a given job or whether we should
+    # just delegate back to +ActiveRecord::Base+. This method will
+    # prevent a new +Perfomer+ class from being instantiated for every
+    # method call by using a guard clause to check whether the method is
+    # an action method before proceeding on further checks.
     #
     # @throws NoMethodError if no job matches the action method
     def method_missing(method, *arguments)
-      return super unless respond_to? method
-      job_for(method).perform_later(self)
-    end
-
-    # Test whether the action method exists on this class.
-    #
-    # @returns [FalseClass] if the method does not end in a '!'
-    # @returns [FalseClass] if the method does not correspond to a job
-    # @returns [TrueClass] if a job with a corresponding name is found
-    def respond_to?(method)
-      method_for_job?(method) || super
+      return super unless performer = job_performer(method)
+      performer.call self
     end
 
     private
 
-    def method_for_job?(method)
-      return false unless method.to_s =~ BANG
-      job_for(method).present?
-    end
-
-    def job_for(method)
-      job_name(method).classify.constantize
-    rescue LoadError
-      logger.debug "#{job_name(method)} is not defined"
-      nil
-    end
-
-    def job_name(method)
-      [
-        job_action_name(method.to_s),
-        model_name,
-        'job'
-      ].join '_'
-    end
-
-    def job_action_name(method)
-      method.gsub(BANG, '')
+    def job_performer(method)
+      return unless method =~ Performer::BANG
+      Performer.new method, model_name
     end
   end
 end
