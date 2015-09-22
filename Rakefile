@@ -4,14 +4,11 @@ require "rubocop/rake_task"
 require "yard"
 require "active_model/jobs"
 
-RSpec::Core::RakeTask.new :spec
+RSpec::Core::RakeTask.new :test
 
 RuboCop::RakeTask.new :lint
 
 YARD::Rake::YardocTask.new :doc
-
-desc "Run all RuboCop lint checks and RSpec code examples"
-task test: %w(lint spec)
 
 desc "Create tag and push tags to GitHub"
 task :release do
