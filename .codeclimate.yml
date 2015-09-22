@@ -1,0 +1,8 @@
+languages:
+  Ruby: true
+  JavaScript: false
+  PHP: false
+  Python: false
+exclude_paths:
+  - "lib/active_model/jobs/engine.rb"
+  - "lib/active_model/jobs/version.rb"
