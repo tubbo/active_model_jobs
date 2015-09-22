@@ -51,9 +51,7 @@ module ActiveModel
       #
       # @return [String] the underscored job class name
       def job_name
-        [
-          action_name, model_name, 'job'
-        ].join '_'
+        "#{action_name}_#{model_name}_job"
       end
 
       # Strip the '!' off of the end of the method.

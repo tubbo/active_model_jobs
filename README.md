@@ -1,6 +1,9 @@
 # ActiveModel::Jobs
 
 A model-level interface for kicking off background jobs using ActiveJob.
+Most useful inside a Rails application, it enables you to enqueue
+ActiveJob jobs with a dynamically-generated instance method inside your
+ActiveRecord (or ActiveModel-compatible) model class.
 
 [Documentation](http://www.rubydoc.info/github/tubbo/active_model-jobs/master)
 
@@ -46,30 +49,24 @@ model:
 
 ```ruby
 class Track < ActiveRecord::Base
-  include ActiveModel::Jobs
+  attachment :file
 
-  after_commit :upload!, on: :create
+  after_create :upload!
 end
 ```
 
 Since this is just an instance method, you can call `track.upload!` to
 kick off the job at any time outside of the callback lifecycle.
 
-### Global Inclusion
-
-You can include this module in every ActiveRecord model by inserting the
-following code into an initializer at
-**config/initializers/active_model_jobs.rb**:
-
-```ruby
-ActiveRecord::Base.send :include, ActiveModel::Jobs
-```
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
 Then, run `bin/console` for an interactive prompt that will allow you
 to experiment.
+
+We follow a [semantic versioning](http://semver.org) guideline when
+releasing new versions. Documentation updates do not get a new version,
+it is just merged into 'master' and updated on http://rubydoc.info.
 
 ## Contributing
 
