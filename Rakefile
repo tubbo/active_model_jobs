@@ -13,4 +13,5 @@ YARD::Rake::YardocTask.new :doc
 desc "Run all RuboCop lint checks and RSpec code examples"
 task test: %w(lint spec)
 
-task default: %i(test build doc release)
+# CI task.
+task default: :test
