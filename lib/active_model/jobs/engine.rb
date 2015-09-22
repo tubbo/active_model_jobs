@@ -5,7 +5,7 @@ if defined? Rails
       # +ActiveModel::Jobs+ into every model that includes
       # +ActiveModel::Model+.
       class Engine < Rails::Engine
-        initializer 'active_model_jobs.setup', before: :load_environment_config do
+        initializer 'active_model_jobs.setup' do
           ActiveSupport.on_load :active_model do
             ActiveModel::Model.send :include, ActiveModel::Jobs
           end
