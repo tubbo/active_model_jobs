@@ -1,3 +1,11 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
+deploy:
+  provider: rubygems
+  api_key:
+    secure: JQWmjd5/4zPBjt33e+ZF5+lmz7nsek6X6Q5Er06q/Qbaeak/uxCd/7hW8mP6mesh6p/OOBIYlRBOxN/GHf7/TWd+n5LrmCye18iyqGQlgwrB3ULoDqSh/GBBLp4u4zI6oBZJA3GoC5mDyDg5Mdf5ye0yVBhbfT3D9+VUyq53xrKI3B3pKztTgvZ/KzF4Gsb3UrN5R0E9Q4NZLrkIlApM517BXKnDTpk1DYZGe12FYZtgZMCkSPtiohZ5qizHDq6HK8ZgPPZ970QEu1jIFUs4luF0qKOCYhO9Yq9UWL1m+eRwa/s/j8Vyww9dPg2x9yReDWcIf0gZMKPBMgVQrnfT/YER5L0cee2XbxI6LdPwkvrx7EQwb5e2z/bzVr7IuiZrewWUTNaO7v9NnKSnS3smfbtu9gK5AYzf0X1z42vWCnCwJNYGAJd2sD1dw80zBtWf0YlonrRnXTUTdapSV3FAZBLFNHL9YNldZ9bjT3cPLhZv/ajk9eL7wOWGVRzghfUTYkTdIGQtH1nasVj99b9cuENj8HEJbnh7r8CgkpyuyZ5YjyZt+VCwCxeImPYv7uJbUlChFipdhC5NTvfIkcsDuXWWP+Va67MTchCnf+chCFD4oRLKuc9atkpSdawpvQ4T5tYiqa5nhscLm79bE2Md/VYqdgWo+JzbPOHq4MqAg4Q=
+  gem: active_model-jobs
+  on:
+    tags: true
+    repo: tubbo/active_model-jobs
