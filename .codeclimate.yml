@@ -6,3 +6,9 @@ languages:
 exclude_paths:
   - "lib/active_model/jobs/engine.rb"
   - "lib/active_model/jobs/version.rb"
+engines:
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+    - "**.rb"
