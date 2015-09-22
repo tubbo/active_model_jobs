@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3"
   spec.add_development_dependency "rubocop", "~> 0"
   spec.add_development_dependency "yard", "~> 0"
+  spec.add_development_dependency "codeclimate-test-reporter", "~> 0"
 
   spec.add_dependency "activemodel", "~> 4"
   spec.add_dependency "activejob", "~> 4"
