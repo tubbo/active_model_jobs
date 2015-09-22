@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
 cache: bundler
 deploy:
   provider: rubygems
@@ -10,3 +10,7 @@ deploy:
   on:
     tags: true
     repo: tubbo/active_model-jobs
+addons:
+  code_climate:
+    repo_token:
+      secure: dnAGyqvAZOTVvbeCluPrlL9WxPD5sQ0Xj9+/T5Apl0dz024HDmK9eWrKc75sDfBGHIFD5XWnqc7mtxi9ULU8hqptOQqyZcJ4U4nHUC7+dGi4CXnAHoAaA9W25PBkNpBqiO4AF4v5judkwIMVN0Bi5RwYkv1CJWNGKk57FTB5mMkKCjeoS2tMd0QTquj3yYL4nuCWZKATLZdg7EQMivpcayDPMUZtfGH09FbqUbIRNh8hwwD/PT9xpF7iK1t3PbXhYKA36R/A2aXlnO5KA5bqtN3NZzwoVUyKrl4I+TMzZzAKPkRx6EQLTImNjlhmbExIVZXwuxMZiQQfoV13VhHGZyFoPFYPUqKe0nAvER2eOy95N8blF2SU1/dOGRfW7VrCte8yJrGH+hqqPQOJH/j1JfogjoTIxWwP5/TmVLTlWcsnB3K7UtR/geWvX38koj2elO7Otx/UpoYFgMAtl7Lujmb50W3y6jQIjfqYgxzia9hbtWBN2oFsiPfyG0gAUNufPrxAwRZNJCll79O3eZk7dTidVZOhL9bhqyBpFveNBmvFemWjz9+3a4+TL2S7KM8Q5x5EDfPw2j1DJj7uFWeg6oJlYjo8ozk+o80BnR07YLTgNJqWCX9UvfZap1PGUy+Ri9KJO6s16aCktqTlM8eSPf3C6Hgyt3ta+5RqK7ZHDtU=
