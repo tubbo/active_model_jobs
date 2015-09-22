@@ -27,9 +27,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10"
   spec.add_development_dependency "rspec", "~> 3"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "yard"
+  spec.add_development_dependency "rubocop", "~> 0"
+  spec.add_development_dependency "yard", "~> 0"
 
-  spec.add_dependency "activemodel"
-  spec.add_dependency "activejob"
+  spec.add_dependency "activemodel", "~> 4"
+  spec.add_dependency "activejob", "~> 4"
 end
