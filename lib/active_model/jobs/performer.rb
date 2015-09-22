@@ -28,6 +28,13 @@ module ActiveModel
         @model_name = model_name.to_s
       end
 
+      # Tests whether the given method name ends with a '!'.
+      #
+      # @return [Boolean]
+      def self.action?(method)
+        method =~ BANG
+      end
+
       # Tests whether this method name corresponds to a job class in the
       # application.
       #

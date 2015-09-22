@@ -35,7 +35,7 @@ module ActiveModel
     private
 
     def job_performer(method)
-      return unless method =~ Performer::BANG
+      return unless Performer.action? method
       Performer.new method, model_name
     end
   end
