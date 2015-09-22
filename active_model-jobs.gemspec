@@ -9,10 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tom Scott"]
   spec.email         = ["tscott@weblinc.com"]
 
-  spec.summary       = %(
-    Helper module for initiating ActiveJobs through an ActiveRecord model.
-  )
-  spec.description   = spec.summary
+  spec.summary       = "Enqueue ActiveJobs in your ActiveModel."
+  spec.description   = "#{spec.summary} Helps you call background jobs."
   spec.homepage      = "http://github.com/tubbo/active_model-jobs"
   spec.license       = "MIT"
 
