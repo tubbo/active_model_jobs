@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "yard", "~> 0"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0"
 
-  spec.add_dependency "activemodel", "~> 4"
-  spec.add_dependency "activejob", "~> 4"
+  spec.add_dependency "activemodel", "~> 5.0.0.pre"
+  spec.add_dependency "activejob", "~> 5.0.0.pre"
 end
