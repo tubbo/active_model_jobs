@@ -13,3 +13,7 @@ Style/Documentation:
 # Allow any kind of string literal
 Style/StringLiterals:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*

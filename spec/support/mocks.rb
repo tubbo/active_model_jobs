@@ -29,6 +29,7 @@ class Mocker
     run_callbacks :save do
       return false unless valid?
       return create unless persisted?
+
       update
     end
   end
@@ -49,6 +50,7 @@ class Mocker
 
   def create
     return true if persisted?
+
     run_callbacks :create do
       self.id = 1
       true
@@ -57,6 +59,7 @@ class Mocker
 
   def update
     return false unless persisted?
+
     run_callbacks :update do
       self.id = 2
       true

@@ -18,7 +18,7 @@ module ActiveModel
   #   end
   module Jobs
     # Method suffix for actions.
-    ACTION_SUFFIX = '!'
+    ACTION_SUFFIX = '!'.freeze
 
     # Call +perform_later+ on an ActiveJob class corresponding to an
     # undefined action method name. Most of the work here is done in the
@@ -33,6 +33,7 @@ module ActiveModel
     def method_missing(method, *arguments)
       performer = Performer.new method, model_name
       return super unless respond_to?(method) && performer.job?
+
       performer.call self
     end
 
