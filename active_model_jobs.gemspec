@@ -24,9 +24,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop", ">= 0.49.0"
   spec.add_development_dependency "simplecov"
-  spec.add_development_dependency "yard"
+  spec.add_development_dependency "yard", ">= 0.9.20"
 
   spec.add_dependency "activejob", ">= 5.0.0"
   spec.add_dependency "activemodel", ">= 5.0.0"
