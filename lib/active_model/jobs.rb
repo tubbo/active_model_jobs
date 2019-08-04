@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/all"
 require "active_model"
 require "active_model/jobs/version"
@@ -17,7 +19,7 @@ module ActiveModel
   #   end
   module Jobs
     # Method suffix for actions.
-    ACTION_SUFFIX = '!'.freeze
+    ACTION_SUFFIX = '!'
 
     # Call +perform_later+ on an ActiveJob class corresponding to an
     # undefined action method name. Most of the work here is done in the
@@ -33,6 +35,7 @@ module ActiveModel
       performer = Performer.new method, model_name
       return super unless respond_to?(method) && performer.job?
 
+      self.class.define_method(method) { performer.call self }
       performer.call self
     end
 

@@ -20,10 +20,21 @@ Add this line to your application's Gemfile:
 gem 'active_model-jobs'
 ```
 
-And then execute:
+And then run:
 
 ```bash
 $ bundle
+```
+
+If you're using ActiveRecord, the `ActiveModel::Jobs` module will be
+included in your models by default. For other ORMs or POROs that use
+ActiveModel, you'll need to include the module yourself:
+
+```ruby
+class Model
+  include ActiveModel::Model
+  include ActiveModel::Jobs
+end
 ```
 
 ## Usage
