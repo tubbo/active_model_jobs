@@ -1,5 +1,4 @@
 module ActiveModel
-  #
   module Jobs
     # A support class for finding the +ActiveJob::Base+ that corresponds
     # to a given action method on a given model. When the job class is
@@ -7,9 +6,6 @@ module ActiveModel
     #
     # @private
     class Performer
-      # Regular expression for finding a '!' at the end of a String.
-      BANG = /!\Z/
-
       # The method name given to the class as a String.
       #
       # @attr_reader [String]
@@ -28,19 +24,12 @@ module ActiveModel
         @model_name = model_name.to_s
       end
 
-      # Tests whether the given method name ends with a '!'.
-      #
-      # @return [Boolean]
-      def self.action?(method)
-        method =~ BANG
-      end
-
       # Tests whether this method name corresponds to a job class in the
       # application.
       #
       # @return [Boolean] whether this job exists or not
       def job?
-        method_name =~ BANG && job_class.present?
+        job_class.present?
       end
 
       # Attempts to find the job class for this method and return it,
@@ -65,7 +54,7 @@ module ActiveModel
       #
       # @return [String] '!'-stripped version of the method name.
       def action_name
-        method_name.gsub BANG, ''
+        method_name.gsub ACTION_SUFFIX, ''
       end
 
       # Perform this action on the given model.
@@ -75,7 +64,6 @@ module ActiveModel
       # @return [TrueClass, FalseClass] whether the job succeeded to
       # enqueue.
       def call(model)
-        return false unless job?
         job_class.perform_later model
       end
     end

@@ -60,10 +60,6 @@ module ActiveModel
         it 'returns nil instead of the job class' do
           expect(subject.job_class).to be_nil
         end
-
-        it 'returns false when attempting to call' do
-          expect(subject.call(model)).to eq(false)
-        end
       end
     end
   end

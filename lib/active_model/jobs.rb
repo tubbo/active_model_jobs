@@ -2,7 +2,7 @@ require "active_support/all"
 require "active_model"
 require "active_model/jobs/version"
 require "active_model/jobs/performer"
-require "active_model/jobs/engine"
+require "active_model/jobs/engine" if defined? Rails
 
 # :nodoc:
 module ActiveModel
@@ -17,6 +17,9 @@ module ActiveModel
   #     after_commit :deploy!
   #   end
   module Jobs
+    # Method suffix for actions.
+    ACTION_SUFFIX = '!'
+
     # Call +perform_later+ on an ActiveJob class corresponding to an
     # undefined action method name. Most of the work here is done in the
     # +Performer+ class, which takes care of discoevering whether the
@@ -28,16 +31,15 @@ module ActiveModel
     #
     # @throws NoMethodError if no job matches the action method
     def method_missing(method, *arguments)
-      performer = job_performer(method)
-      return super unless performer.present? && performer.job?
+      performer = Performer.new method, model_name
+      return super unless respond_to?(method) && performer.job?
       performer.call self
     end
 
-    private
-
-    def job_performer(method)
-      return unless Performer.action? method
-      Performer.new method, model_name
+    # Allow the model to respond to all "action" methods (methods
+    # suffixed by +!+)
+    def respond_to_missing?(method, include_private = true)
+      method.to_s.end_with?(ACTION_SUFFIX) || super
     end
   end
 end
