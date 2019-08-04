@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'active_model/jobs/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "active_model-jobs"
+  spec.name          = "active_model_jobs"
   spec.version       = ActiveModel::Jobs::VERSION
   spec.authors       = ["Tom Scott"]
   spec.email         = ["tscott@weblinc.com"]
 
-  spec.summary       = 'This gem has been renamed active_model_jobs.'
+  spec.summary       = 'Enqueue background jobs from model classes'
   spec.description   = spec.summary
   spec.homepage      = "http://github.com/tubbo/active_model_jobs"
   spec.license       = "MIT"
