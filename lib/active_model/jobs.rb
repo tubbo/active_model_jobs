@@ -4,7 +4,6 @@ require "active_model/jobs/version"
 require "active_model/jobs/performer"
 require "active_model/jobs/engine" if defined? Rails
 
-# :nodoc:
 module ActiveModel
   # Include this module into your model to take advantage of
   # automatically-generated +:job_name!+ action methods for any

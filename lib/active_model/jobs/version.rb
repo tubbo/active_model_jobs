@@ -1,7 +1,7 @@
-# @see http://api.rubyonrails.org/classes/ActiveModel/Model.html
+# :nodoc:
 module ActiveModel
   module Jobs
     # @type [String]
-    VERSION = "0.2.0"
+    VERSION = "0.2.1".freeze
   end
 end
