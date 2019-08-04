@@ -1,6 +1,6 @@
 # ActiveModel::Jobs
 
-[![Build Status](https://travis-ci.org/tubbo/active_model-jobs.svg)](https://travis-ci.org/tubbo/active_model-jobs)
+[![Build Status](https://travis-ci.org/tubbo/active_model_jobs.svg?branch=master)](https://travis-ci.org/tubbo/active_model_jobs)
 [![Code Climate](https://codeclimate.com/github/tubbo/active_model-jobs/badges/gpa.svg)](https://codeclimate.com/github/tubbo/active_model-jobs)
 [![Test Coverage](https://codeclimate.com/github/tubbo/active_model-jobs/badges/coverage.svg)](https://codeclimate.com/github/tubbo/active_model-jobs/coverage)
 [![Inline docs](http://inch-ci.org/github/tubbo/active_model-jobs.svg?branch=master)](http://inch-ci.org/github/tubbo/active_model-jobs)
